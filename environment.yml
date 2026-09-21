@@ -1,0 +1,16 @@
+name: sports-injury-validation-integrity
+channels:
+  - conda-forge
+dependencies:
+  - python=3.13.7
+  - pip
+  - pip:
+      - numpy==2.4.6
+      - pandas==3.0.2
+      - scipy==1.17.1
+      - scikit-learn==1.8.0
+      - matplotlib==3.10.9
+      - xgboost==3.2.0
+      - openpyxl==3.1.5
+      - jupyterlab==4.4.5
+      - ipykernel==7.2.0
