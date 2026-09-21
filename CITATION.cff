@@ -4,6 +4,10 @@ title: "Validation Integrity in Longitudinal Sports-Injury AI: An Executable Aud
 type: software
 version: 1.0.0
 date-released: 2026-09-21
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.22878680"
+    description: "Archived snapshot of version 1.0.0"
 repository-code: "https://github.com/aboutara-marouane/validation-integrity-sports-injury-ai"
 authors:
   - family-names: Aboutara-Belghiti
