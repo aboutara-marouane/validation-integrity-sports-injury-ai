@@ -1,0 +1,18 @@
+{
+  "raw_path": "data/raw/data_weekly.csv",
+  "raw_md5": "5fe8c80e2a2fa267789be363aacad43a",
+  "prospective_path": "data/processed/leakage_safe_prospective_28d.csv",
+  "prospective_sha256": "eb5fdf8aa24d3a6dc806aaa02b972fdc832902d46792f4792e9bac8be92c28b8",
+  "horizon": 28,
+  "raw_rows": 42798,
+  "athletes": 74,
+  "injury_labelled_rows": 575,
+  "derived_incident_starts": 389,
+  "incident_starts_after_exact_22_gap": 347,
+  "incident_starts_with_zero_retained_rows_in_implied_history": 389,
+  "provisional_rows": 40180,
+  "provisional_positive_rows": 2245,
+  "provisional_negative_rows_without_continuous_28d_retained_rows": 7241,
+  "adjacent_one_unit_transitions": 41751,
+  "all_within_athlete_transitions": 42724
+}

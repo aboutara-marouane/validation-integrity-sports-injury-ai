@@ -1,0 +1,58 @@
+[
+  {
+    "stage": "S0_source_style",
+    "normalization": "healthy",
+    "disjoint_calibration": false,
+    "safe_features": false,
+    "natural_calibration": false,
+    "natural_fit": false
+  },
+  {
+    "stage": "S1_outcome_blind_normalization",
+    "normalization": "all",
+    "disjoint_calibration": false,
+    "safe_features": false,
+    "natural_calibration": false,
+    "natural_fit": false
+  },
+  {
+    "stage": "S2_training_only_preprocessing",
+    "normalization": "none",
+    "disjoint_calibration": false,
+    "safe_features": false,
+    "natural_calibration": false,
+    "natural_fit": false
+  },
+  {
+    "stage": "S3_athlete_disjoint_calibration",
+    "normalization": "none",
+    "disjoint_calibration": true,
+    "safe_features": false,
+    "natural_calibration": false,
+    "natural_fit": false
+  },
+  {
+    "stage": "S4_safe_feature_contract",
+    "normalization": "none",
+    "disjoint_calibration": true,
+    "safe_features": true,
+    "natural_calibration": false,
+    "natural_fit": false
+  },
+  {
+    "stage": "S5_natural_prevalence_calibration",
+    "normalization": "none",
+    "disjoint_calibration": true,
+    "safe_features": true,
+    "natural_calibration": true,
+    "natural_fit": false
+  },
+  {
+    "stage": "S6_natural_rows_weighted_fitting",
+    "normalization": "none",
+    "disjoint_calibration": true,
+    "safe_features": true,
+    "natural_calibration": true,
+    "natural_fit": true
+  }
+]

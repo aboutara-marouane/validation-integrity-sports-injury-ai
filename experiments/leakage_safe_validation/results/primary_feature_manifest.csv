@@ -1,0 +1,67 @@
+feature,role
+nr. sessions,primary_safe
+nr. rest days,primary_safe
+total kms,primary_safe
+max km one day,primary_safe
+total km Z3-Z4-Z5-T1-T2,primary_safe
+"nr. tough sessions (effort in Z5, T1 or T2)",primary_safe
+nr. days with interval session,primary_safe
+total km Z3-4,primary_safe
+max km Z3-4 one day,primary_safe
+total km Z5-T1-T2,primary_safe
+max km Z5-T1-T2 one day,primary_safe
+total hours alternative training,primary_safe
+nr. strength trainings,primary_safe
+avg exertion,primary_safe
+min exertion,primary_safe
+max exertion,primary_safe
+avg training success,primary_safe
+min training success,primary_safe
+max training success,primary_safe
+avg recovery,primary_safe
+min recovery,primary_safe
+max recovery,primary_safe
+nr. sessions.1,primary_safe
+nr. rest days.1,primary_safe
+total kms.1,primary_safe
+max km one day.1,primary_safe
+total km Z3-Z4-Z5-T1-T2.1,primary_safe
+"nr. tough sessions (effort in Z5, T1 or T2).1",primary_safe
+nr. days with interval session.1,primary_safe
+total km Z3-4.1,primary_safe
+max km Z3-4 one day.1,primary_safe
+total km Z5-T1-T2.1,primary_safe
+max km Z5-T1-T2 one day.1,primary_safe
+total hours alternative training.1,primary_safe
+nr. strength trainings.1,primary_safe
+avg exertion.1,primary_safe
+min exertion.1,primary_safe
+max exertion.1,primary_safe
+avg training success.1,primary_safe
+min training success.1,primary_safe
+max training success.1,primary_safe
+avg recovery.1,primary_safe
+min recovery.1,primary_safe
+max recovery.1,primary_safe
+nr. sessions.2,primary_safe
+nr. rest days.2,primary_safe
+total kms.2,primary_safe
+max km one day.2,primary_safe
+total km Z3-Z4-Z5-T1-T2.2,primary_safe
+"nr. tough sessions (effort in Z5, T1 or T2).2",primary_safe
+nr. days with interval session.2,primary_safe
+total km Z3-4.2,primary_safe
+max km Z3-4 one day.2,primary_safe
+total km Z5-T1-T2.2,primary_safe
+max km Z5-T1-T2 one day.2,primary_safe
+total hours alternative training.2,primary_safe
+nr. strength trainings.2,primary_safe
+avg exertion.2,primary_safe
+min exertion.2,primary_safe
+max exertion.2,primary_safe
+avg training success.2,primary_safe
+min training success.2,primary_safe
+max training success.2,primary_safe
+avg recovery.2,primary_safe
+min recovery.2,primary_safe
+max recovery.2,primary_safe

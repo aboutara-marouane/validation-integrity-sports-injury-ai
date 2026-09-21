@@ -1,0 +1,10 @@
+{
+  "output_dir": "experiments/validation_integrity_audit/results/synthetic_stress_tests",
+  "replications": 50,
+  "participants": 100,
+  "rows_per_participant": 30,
+  "null_features": 300,
+  "selected_features": 20,
+  "folds": 5,
+  "seed": 20260830
+}

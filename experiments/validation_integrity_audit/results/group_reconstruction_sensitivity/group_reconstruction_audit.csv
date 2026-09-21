@@ -1,0 +1,9 @@
+dataset,grouping_rule,unique_groups,contiguous_runs,minimum_rows,maximum_rows,partition_equivalent_to_five_field
+class1_features,five_field_exact,142,142,1,80,True
+class1_features,four_field_exact,142,142,1,80,True
+class1_features,three_field_coarsened,134,142,1,173,False
+class1_features,three_field_contiguous_runs,142,142,1,80,True
+all_features,five_field_exact,142,142,1,80,True
+all_features,four_field_exact,142,142,1,80,True
+all_features,three_field_coarsened,134,142,1,173,False
+all_features,three_field_contiguous_runs,142,142,1,80,True

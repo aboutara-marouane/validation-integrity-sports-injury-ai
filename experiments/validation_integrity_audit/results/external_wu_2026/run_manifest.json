@@ -1,0 +1,17 @@
+{
+  "config": {
+    "data_dir": "data/external/wu_2026",
+    "output_dir": "experiments/validation_integrity_audit/results/external_wu_2026",
+    "repeats": 3,
+    "folds": 5,
+    "selected_features": 20,
+    "bootstrap_iterations": 2000,
+    "seed": 20260830
+  },
+  "python": "3.13.7",
+  "pandas": "3.0.2",
+  "numpy": "2.4.6",
+  "scikit_learn": "1.8.0",
+  "xgboost": "3.2.0",
+  "participant_id_status": "inferred from five invariant baseline fields"
+}

@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the associated article and the archived software release."
+title: "Validation Integrity in Longitudinal Sports-Injury AI: An Executable Audit of Participant, Temporal, Selection, Calibration, and Observation Bias"
+type: software
+version: 1.0.0
+date-released: 2026-09-21
+repository-code: "https://github.com/aboutara-marouane/validation-integrity-sports-injury-ai"
+authors:
+  - family-names: Aboutara-Belghiti
+    given-names: Marouane
+  - family-names: Es-sadek
+    given-names: Mohamed Zeriab
+  - family-names: Belfkih
+    given-names: Samir
