@@ -1,0 +1,41 @@
+\subsection{Reusable validation-integrity profile}
+\label{sec:vip}
+
+We formalized the audit as the seven-domain validation-integrity profile
+(Table~\ref{tab:vip}). The profile is a protocol, not a numerical score. Each domain is
+reported as \emph{verified}, \emph{violated}, \emph{indeterminate}, or
+\emph{not applicable}, together with executable evidence. This prevents a
+high aggregate score from concealing one claim-invalidating failure.
+
+\begin{table}[H]
+\centering
+\scriptsize
+\caption{Reusable Validation-Integrity Profile for longitudinal prediction AI.}
+\label{tab:vip}
+\begin{tabular}{L{1.1cm} L{2.8cm} L{4.1cm} L{4.0cm} L{3.2cm}}
+\toprule
+\textbf{Code} & \textbf{Domain} & \textbf{Validity condition} & \textbf{Executable audit} & \textbf{Required evidence} \\
+\midrule
+E & Endpoint and index time & The target, prediction time, risk set, and predictor availability are unambiguous. & Reconstruct episodes and observation spacing; reject future targets without continuous follow-up. & Endpoint contract; exclusions; sampling diagram. \\
+I & Identity separation & Every correlated identity unit belongs to only one side of an evaluation split. & Count participant overlap in every fold; compare row-wise with grouped out-of-fold estimates. & Group definition; split manifest; paired metric change. \\
+T & Transformation locality & Imputation, scaling, normalization, and representation statistics use training data only. & Replace label-conditioned and test-transductive transformations sequentially. & Fitted-statistic provenance; protocol ladder. \\
+S & Supervised-selection locality & Every outcome-informed selection or tuning operation is repeated inside training folds. & Compare global with fold-local selection under an otherwise fixed grouped design. & Selected features by fold; paired metric change. \\
+C & Calibration integrity & Calibration units are independent of fitting/test units and reflect the target prevalence. & Measure fit--calibration identity/row overlap; compare balanced with natural-prevalence calibration. & Calibration split; prevalence; Brier, log loss, intercept, slope. \\
+H & History independence & Test histories do not duplicate or substantially overlap training/evaluation histories beyond the deployment scenario. & Evaluate all prespecified non-overlapping temporal offsets or forward-chaining splits. & Window map; offset results; no performance-selected offset. \\
+O & Observation-process resistance & Administrative availability or post-event proxies cannot determine the label. & Prohibited-feature stress test plus refitted within-identity permutation and circular-shift controls. & Feature-availability contract; null distributions. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Application follows five steps: define the intended claim and endpoint contract;
+map identities, time windows, and all outcome-informed operations; construct the
+safeguarded reference pipeline; vary one integrity domain at a time while
+holding the model family and evaluation rows fixed where possible; and report
+paired cluster-aware changes for discrimination and probability accuracy. For
+metric $m$ and stress condition $d$, the audit quantity is
+\begin{equation}
+\Delta_{m,d}=m(\widehat{p}_{d})-m(\widehat{p}_{\mathrm{reference}}),
+\end{equation}
+where both predictions are aligned to the same evaluation rows and uncertainty
+is resampled at the independent identity unit. The sign is interpreted in the
+metric's direction; the profile does not assume that effects are additive or causal.

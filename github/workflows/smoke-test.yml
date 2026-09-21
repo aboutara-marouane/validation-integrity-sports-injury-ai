@@ -1,0 +1,30 @@
+name: smoke-test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  import-and-manifest-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -r requirements.txt
+      - run: python -m py_compile $(find data experiments reproducibility -name '*.py')
+      - run: |
+          export MPLCONFIGDIR=/tmp/matplotlib
+          for script in \
+            experiments/outcome_sampling_audit/run_outcome_sampling_audit.py \
+            experiments/leakage_safe_validation/run_leakage_safe_validation.py \
+            experiments/confirmatory_weekly_analysis/run_confirmatory_weekly_analysis.py \
+            experiments/validation_integrity_audit/run_protocol_ladder.py \
+            experiments/validation_integrity_audit/run_external_cohort_audit.py \
+            experiments/validation_integrity_audit/run_synthetic_stress_tests.py \
+            experiments/validation_integrity_audit/run_group_reconstruction_sensitivity.py; do
+            python "$script" --help
+          done
+      - run: python reproducibility/build_release_manifest.py

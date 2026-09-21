@@ -1,0 +1,21 @@
+# Operating-system and editor files
+.DS_Store
+.vscode/
+
+# Python and Jupyter generated files
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Local environments and test/build artefacts
+.venv/
+.pytest_cache/
+.coverage
+manuscript/*.aux
+manuscript/*.bbl
+manuscript/*.blg
+manuscript/*.log
+manuscript/*.out
+manuscript/*.pdf
+
+# Downloaded and derived source data are excluded in data/.gitignore.

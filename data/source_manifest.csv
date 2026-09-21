@@ -1,0 +1,4 @@
+cohort,provider,source_doi,provider_filename,local_path,sha256,md5,notes
+cohort_1,Lovdal et al. DataverseNL,https://doi.org/10.34894/UWU9PV,week_approach_maskedID_timeseries.csv,data/raw/data_weekly.csv,261ba3a481f3428611cc175eac2b67749ee3d97980d81168af13bd9f932d5a31,5fe8c80e2a2fa267789be363aacad43a,Weekly masked-ID time-series file used for all cohort-1 analyses
+cohort_2_39_predictors,Wu et al. supplementary material,https://doi.org/10.1038/s41746-026-02413-y,MOESM2,data/external/wu_2026/class1_features.xlsx,4d5d1ae468073287b7808998ef26d3651d817eb7595d5d37840908ff5e50f4de,,39-predictor processed weekly matrix
+cohort_2_257_predictors,Wu et al. supplementary material,https://doi.org/10.1038/s41746-026-02413-y,MOESM3,data/external/wu_2026/all_features.xlsx,8609fcbdc90743d19c278f8f337e23e9663bc56a93a7ffa19f83b2214148a027,,257-predictor processed weekly matrix

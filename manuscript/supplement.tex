@@ -1,0 +1,118 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{margin=1.8cm}
+\usepackage{booktabs,longtable,array,hyperref}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+
+\begin{document}
+
+\begin{center}
+{\Large\textbf{Supplementary Methods and Validation-Integrity Evidence}}\\[0.3cm]
+{\large Validation Design Can Reverse Conclusions in Sports-Injury AI}
+\end{center}
+
+\section{Purpose}
+
+This supplement makes the identity reconstruction, validation-integrity
+profile, sensitivity analyses, and reproducibility evidence independently
+auditable. Cohort 1 is retrospective classification of supplied injury-labelled
+event days; no prospective forecasting claim is made.
+
+\section{External-data provenance}
+
+The official Wu et al. supplementary workbooks both contain 6,181 released
+rows and 564 positive labels. The 39-predictor workbook has SHA-256
+\texttt{4d5d1ae468073287b7808998ef26d3651d817eb7595d5d37840908ff5e50f4de};
+the 257-predictor workbook has SHA-256
+\texttt{8609fcbdc90743d19c278f8f337e23e9663bc56a93a7ffa19f83b2214148a027}.
+The files contain no explicit participant ID or week index.
+
+\section{Participant-trajectory reconstruction proof}
+
+The primary fingerprint combined sex, age, prior lower-limb injury days,
+average running hours, and interval-training frequency. Four complementary
+rules were compared independently in both workbooks. Exact four- and five-field
+grouping and contiguous runs defined by the first three fields produced the
+same 142-way partition. Exact grouping on three fields merged eight
+trajectories and was evaluated as a conservative sensitivity analysis.
+
+\begin{table}[h]
+\centering
+\small
+\caption{Reconstruction audit; results are identical in both official matrices.}
+\begin{tabular}{L{4.7cm} C{2.4cm} C{2.4cm} C{3.4cm}}
+\toprule
+\textbf{Rule} & \textbf{Unique groups} & \textbf{Contiguous runs} & \textbf{Same partition as primary} \\
+\midrule
+Five-field exact fingerprint & 142 & 142 & Yes \\
+Four-field exact fingerprint & 142 & 142 & Yes \\
+Three-field contiguous runs & 142 & 142 & Yes \\
+Three-field exact, coarsened & 134 & 142 & No; merges trajectories \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The equivalence check was bidirectional: every group under rule A mapped to
+exactly one group under rule B and conversely. The program fails if either
+mapping is one-to-many. Exact agreement does not convert the inferred identity
+into a confirmed identifier; it demonstrates internal consistency only.
+
+\section{Conservative grouping sensitivity}
+
+The full grouped, fold-local analysis was repeated after merging trajectories
+with the conservative three-field exact rule. Values below are pooled
+repeat-averaged ROC-AUC estimates with 2,000 coarsened-group bootstrap
+intervals. Conclusions were unchanged and estimates generally decreased.
+
+\begin{table}[h]
+\centering
+\small
+\caption{Primary 142-group and conservative 134-group ROC-AUC.}
+\begin{tabular}{L{3.0cm} L{2.8cm} C{3.1cm} C{3.1cm}}
+\toprule
+\textbf{Matrix} & \textbf{Model} & \textbf{Primary grouping} & \textbf{Coarsened grouping} \\
+\midrule
+39 predictors & Logistic & 0.613 (0.561--0.658) & 0.596 (0.542--0.647) \\
+39 predictors & Random forest & 0.523 (0.472--0.574) & 0.518 (0.459--0.571) \\
+39 predictors & XGBoost & 0.558 (0.509--0.602) & 0.556 (0.501--0.607) \\
+257 predictors & Logistic & 0.644 (0.605--0.681) & 0.630 (0.591--0.666) \\
+257 predictors & Random forest & 0.586 (0.542--0.632) & 0.550 (0.499--0.600) \\
+257 predictors & XGBoost & 0.574 (0.524--0.618) & 0.545 (0.501--0.590) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Applied Validation-Integrity Profile}
+
+\begin{longtable}{L{1.1cm} L{3.1cm} L{5.2cm} L{5.2cm}}
+\toprule
+\textbf{Code} & \textbf{Domain} & \textbf{Cohort 1 evidence} & \textbf{Cohort 2 evidence} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Code} & \textbf{Domain} & \textbf{Cohort 1 evidence} & \textbf{Cohort 2 evidence} \\
+\midrule
+\endhead
+E & Endpoint/index time & Verified only for retrospective event-day classification; prospective risk set indeterminate. & Weekly prospective label supplied; missing week index prevents chronological audit. \\
+I & Identity separation & Verified from explicit Athlete ID in all primary grouped folds. & Verified conditionally on inferred identity; four reconstruction rules and conservative merging sensitivity reported. \\
+T & Transformation locality & Training-only reference verified; healthy-row and test-transductive comparators deliberately violate locality. & Released matrices are already normalized; upstream normalization locality cannot be reconstructed and is marked indeterminate. \\
+S & Selection locality & Nested selection within development folds in the primary analysis. & Fold-local reference compared with deliberately global selection. \\
+C & Calibration integrity & Athlete-disjoint natural-prevalence calibration; overlap and Brier effects reported. & Raw locked-model probabilities evaluated; no post-hoc test calibration. \\
+H & History independence & All 21 Date-modulo-21 offsets evaluated without outcome-based offset selection. & Not assessable because the released week index is absent. \\
+O & Observation-process resistance & Recording-gap prohibited-feature stress test plus two refitted label null controls. & Availability mechanism cannot be fully audited from processed matrices. \\
+\bottomrule
+\end{longtable}
+
+\section{Machine-readable evidence}
+
+The release contains row-level out-of-fold predictions, fold metrics, paired
+protocol contrasts, cluster-bootstrap summaries, feature selections, data
+hashes, dependency pins, and a SHA-256 release manifest. The reconstruction
+evidence is generated by
+\texttt{run\_group\_reconstruction\_sensitivity.py}; no table in this
+supplement depends on manual spreadsheet calculations.
+
+\end{document}
